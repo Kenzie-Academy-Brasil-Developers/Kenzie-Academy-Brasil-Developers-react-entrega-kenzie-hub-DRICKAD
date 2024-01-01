@@ -1,0 +1,54 @@
+
+
+
+@mixin title($font-size: clamp(0.9375rem, 1.125rem, 1.1313rem), $color: var(--Gray-0)){
+    font-weight: 700;   
+    font-size: $font-size;
+    color: $color; 
+    font-family: 'Inter', sans-serif;
+}
+
+@mixin headine($font-weigth: 400, $color: var(--Gray-1)){
+    font-weight: $font-weigth;
+    color:$color;
+    font-size: clamp(0.5625rem, 0.75rem, 0.7614rem);
+    font-family: 'Inter', sans-serif;
+}
+
+
+.title-1{
+    @include title();
+}
+
+.title-2{
+    @include title($font-size: clamp(0.8125rem, 1rem, 1.0125rem))
+}
+
+
+.headine{
+    @include headine($color:var(--Gray-0));
+}
+
+.headineGray{
+    @include headine($color: var(--Gray-1));
+}
+
+.headineBold{
+    @include headine($font-weigth: 600);
+}
+
+@mixin paragraph($font-size: clamp(0.8125rem, 1rem, 1.0125rem)){
+    font-family: 'Inter', sans-serif;
+    font-size: $font-size;
+    font-weight: 400;
+    color: var(--Gray-1);
+}
+
+.paragraph{
+    @include paragraph()
+}
+
+.paragraph2{
+    @include paragraph($font-size: clamp(0.5625rem, 0.75rem, 0.7614rem))
+}
+

@@ -1,0 +1,93 @@
+%btnHeader{
+    display: inline-flex;
+    padding: 0rem 1.01519rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6345rem;;
+
+    border-radius: 0.25rem;
+    background: var(--Gray-3);
+
+    color: var( --Gray-0);
+    text-align: center;
+    font-size: clamp(0.5625rem, 0.75rem, 0.7614rem);
+    font-weight: 600;
+}
+
+.btnRegister{
+  @extend %btnHeader;
+  height: 2.50688rem;
+
+  & :hover{
+    transform: scale(2);
+  }
+}
+
+.btnHome{
+  @extend %btnHeader;
+  height: 2rem;
+
+  & :hover{
+    transform: scale(2);
+  }
+}
+
+
+%btnDefault{
+    width: 20.25rem;
+    height: 3rem;
+    display: flex;
+    gap: 0.6345rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25381rem;
+}
+
+.buttonPrimary{
+    @extend %btnDefault;
+    border: 1.218px solid var(--Color-primary);
+    background: var(--Color-primary);
+
+
+    &:hover{
+        border: 1.218px solid var(--Color-primary-Focus);
+        background: var(--Color-primary-Focus);
+    }
+}
+
+.buttonPrimaryNegative{
+    @extend %btnDefault;
+    border: 1.218px solid var(--Color-primary-Negative);
+    background: var(--Color-primary-Negative);
+
+    &:hover{
+        border: 1.218px solid var(--Color-primary-Focus);
+        background: var(--Color-primary-Focus);
+    }
+}
+
+.buttonDisabled{
+    @extend %btnDefault;
+    border: 1.218px solid var(--Gray-1);
+    background: var(--Gray-1);
+
+    &:hover{
+        border: 1.218px solid var(--Gray-2);
+        background: var(--Gray-2);
+    }
+}
+
+@media(max-width: 425px){
+  .buttonPrimary, .buttonPrimaryNegative, .buttonDisabled {
+    width: 15rem;
+    height: 2.3986rem;
+    }
+}
+
+@media(max-width: 320px){
+  .buttonPrimary, .buttonPrimaryNegative, .buttonDisabled {
+    width: 14.8125rem;
+    height: 2.3986rem;
+  }
+}
+
