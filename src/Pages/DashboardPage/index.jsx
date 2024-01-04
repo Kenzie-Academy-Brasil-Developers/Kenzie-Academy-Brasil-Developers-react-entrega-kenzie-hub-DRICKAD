@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { DefaultTemplate } from "../../Components/DefaultTemplate";
 import style from "./style.module.scss";
 
 export const DashboardPage = () =>{
+    const navigate = useNavigate();
+
+    const logoffRoute = () =>{
+        navigate("/");
+    }
+    
     return(
-        <DefaultTemplate btnName={"Sair"} btnHeader={"btnHome"}>
+        <DefaultTemplate logoffRoute={logoffRoute} btnName={"Sair"} btnHeader={"btnHome"}>
          <section className={style.sectionOne}>
             <div className={style.div1}>
                 <h1 className="title-1">Olá, Samuel Leão</h1>

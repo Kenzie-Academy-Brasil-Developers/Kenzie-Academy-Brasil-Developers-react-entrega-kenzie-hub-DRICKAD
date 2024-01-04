@@ -1,7 +1,11 @@
-export const ButtonDefault = ({nameBtn, className}) =>{
+import { forwardRef } from "react";
+
+export const ButtonDefault = forwardRef(({children, ...rest}, ref) =>{
     return(
-        <button className= {className}>
-            {nameBtn}
+        <button {...rest} ref= {ref}>
+            {children}
         </button>
     )
-} 
+})
+
+ 

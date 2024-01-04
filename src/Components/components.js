@@ -1,7 +1,7 @@
 import { Input } from "./Inputs";
-import { TextareaBio } from "./TextareaBio";
 import { ButtonDefault } from "./ButtonDefault";
 import { DefaultTemplate } from "./DefaultTemplate";
+import { FormLoginSchema } from "./FormSchemas/FormLoginSchema";
+import { FormRegisterSchema } from "./FormSchemas/FormRegisterSchema";
 
-
-export {Input, TextareaBio, ButtonDefault, DefaultTemplate}
+export {Input, ButtonDefault, DefaultTemplate, FormLoginSchema, FormRegisterSchema};

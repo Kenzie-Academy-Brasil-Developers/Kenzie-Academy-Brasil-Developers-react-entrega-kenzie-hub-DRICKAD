@@ -4,8 +4,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
+
 
 input{
     width: 19.25rem;
@@ -24,6 +30,13 @@ input{
         border: 1.218px solid var(--Gray-0);
         color: var(--Gray-0);
     }
+}
+
+.message{
+    color: var(--Color-Neative);
+    font-size: 12px;
+    text-align: center;
+    padding-top: 0.3rem;
 }
 
 input::placeholder{

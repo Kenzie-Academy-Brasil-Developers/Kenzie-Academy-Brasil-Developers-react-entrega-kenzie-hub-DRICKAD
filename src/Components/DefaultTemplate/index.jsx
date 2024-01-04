@@ -1,9 +1,9 @@
-import { Header } from "../Header/index.jsx"
+import { Header } from "../Header/index.jsx";
 
-export const DefaultTemplate = ({children, btnName, btn, btnHeader, classHeader}) => {
+export const DefaultTemplate = ({children, ... rest}, ref) => {
     return(
         <>
-        <Header btnName = {btnName} btn ={btn} btnHeader={btnHeader} classHeader={classHeader}/>
+        <Header {...rest} />
         <main>{children}</main>  
         </>
     )

@@ -1,11 +1,17 @@
+import { forwardRef } from "react";
 import style from "./style.module.scss";
 
-export const Input = ({label, type,placeholder})=>{
+export const Input = forwardRef(({error, label, ...rest}, ref)=>{
 
     return(
         <div className={style.container}>
-            <label className="headine" htmlFor="">{label}</label>
-            <input className="paragraph" type={type} placeholder= {placeholder} />
+            <label className= {`headine ${style.box}`}>
+                {label}
+                <div>
+                    <input {...rest} ref= {ref} />
+                    {error ? <p className= {style.message}>{error.message}</p>: null}
+                </div>
+            </label>
         </div>
     )
-}
+})
