@@ -44,7 +44,7 @@ export const FormRegister = ()=>{
             <Input label={"Email"} type="email" placeholder="Digite seu email aqui" {...register("email")} error={errors.email}/>
             <div className= {style.divPassword1}>
                 <InputPassword 
-                    label={"Senha"} 
+                    label= "Senha" 
                     type={showEyePassword? "text": "password"}
                     placeholder="Digite sua senha aqui"
                     {...register("password")} 
@@ -54,7 +54,7 @@ export const FormRegister = ()=>{
             </div>
             <div className= {style.divPassword1}>
                 <InputPassword
-                    label={"Confirmar Senha"} 
+                    label="Confirmar Senha" 
                     type={showEyePassword? "text": "password"}
                     placeholder="Digite novamente sua senha" 
                     {...register("confirmPassword")} 
