@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { DefaultTemplate } from "../../Components/DefaultTemplate";
 import style from "./style.module.scss";
 
-export const DashboardPage = () =>{
+export const DashboardPage = ({user, setUser}) =>{
     const navigate = useNavigate();
 
     const logoffRoute = () =>{
@@ -10,11 +10,11 @@ export const DashboardPage = () =>{
     }
     
     return(
-        <DefaultTemplate logoffRoute={logoffRoute} btnName={"Sair"} btnHeader={"btnHome"}>
+        <DefaultTemplate setUser={setUser} logoffRoute={logoffRoute} btnName={"Sair"} btnHeader={"btnHome"}>
          <section className={style.sectionOne}>
             <div className={style.div1}>
-                <h1 className="title-1">Olá, Samuel Leão</h1>
-                <p className= "paragraph2">Primeiro módulo(Introdução ao Frontend)</p>
+                <h1 className="title-1">Olá, {user.name}</h1>
+                <p className= "paragraph2">{user.course_module}</p>
             </div>
          </section>
          <section className={style.sectionTwo}>

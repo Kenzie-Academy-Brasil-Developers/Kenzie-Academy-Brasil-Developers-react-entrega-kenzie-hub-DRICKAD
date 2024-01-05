@@ -1,0 +1,71 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+}
+
+.span{
+    max-height: 1.2rem;
+    height: 1.2rem;
+    padding-top: 0.2rem;
+}
+
+input{
+    width: 19.25rem;
+    height: 3rem;
+    margin-top: 0.5rem;
+
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+
+    border-radius: 0.25rem;
+    border: 0.0761rem solid var(--Gray-2);
+    background: var(--Gray-2);
+    color: var(--Gray-1);
+
+    outline: none;
+    font-size: 1rem;
+}
+
+.message{
+    color: var(--Color-Neative);
+    font-size: 12px;
+    text-align: center;
+}
+
+.spanTransparent{
+    color: var(--Gray-4) ;
+}
+
+input::placeholder{
+    color: var(--Gray-0);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.eyeShow{
+    border: none;
+    background-color: transparent;
+    position: relative;
+    left: 17.5rem;
+    bottom: 3.7rem;
+    font-size: 21px;
+    color: var(--Gray-1);
+}
+
+@media(max-width: 425px){
+    .divLogin{
+        height: 10rem;
+}
+    .eyeShow{
+         left: 13.6rem;
+         bottom: 3.5rem;
+    }
+}

@@ -16,7 +16,7 @@ export const FormRegisterSchema = z
     confirmPassword: z.string("campo obrigatório").min(1, "campo obrigatório"),
     bio:z.string("campo obrigatório").min(1, "campo obrigatório"),
     contact:z.string("campo obrigatório").min(1, "campo obrigatório"),
-    module: z.string("campo obrigatório").min(1, "campo obrigatório"), 
+    course_module: z.string("campo obrigatório").min(1, "campo obrigatório"), 
     
 })
 .refine(({password, confirmPassword}) => password === confirmPassword, { 

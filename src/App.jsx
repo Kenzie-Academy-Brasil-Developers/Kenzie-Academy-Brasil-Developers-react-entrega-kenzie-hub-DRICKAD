@@ -1,5 +1,5 @@
-import { RoutesMain } from './routes/RoutesMain';
-import './styles/index.scss';
+import { RoutesMain } from "./routes/RoutesMain";
+import "./styles/index.scss";
 
 const App = () => {
   return (

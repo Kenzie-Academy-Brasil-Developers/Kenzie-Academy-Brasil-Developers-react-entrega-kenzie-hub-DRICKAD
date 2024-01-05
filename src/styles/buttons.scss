@@ -18,17 +18,20 @@
   @extend %btnHeader;
   height: 2.50688rem;
 
-  & :hover{
-    transform: scale(2);
+  &:hover{
+    transform: scale(1, 1);
+    border: 1px solid var(--Gray-2)
   }
 }
 
 .btnHome{
   @extend %btnHeader;
   height: 2rem;
+  transition: scale .4s;
 
-  & :hover{
-    transform: scale(2);
+  &:hover{
+    transform: scale(1, 1);
+    border: 1px solid var(--Gray-2)
   }
 }
 
