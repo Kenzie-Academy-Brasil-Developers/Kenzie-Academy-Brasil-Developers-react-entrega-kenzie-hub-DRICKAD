@@ -3,18 +3,20 @@ import logo from "../../assets/logoKenzieHub.svg";
 import style from "./style.module.scss";
 import { ButtonDefault } from "../ButtonDefault";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-export const Header = ({btnName, btn, btnHeader, classHeader, setUser}, ref) => {
+export const Header = ({btnName, btn, btnHeader, classHeader, setUser, loGoOut}) => {
 
     const navigate = useNavigate();
-
     const logoff = () =>{
         setUser(null);
-        navigate("/");
         localStorage.clear("@TOKEN");
+        toast.success("Usuário foi deslogado")
+        navigate("/");
     }
 
     const logoffRoute = () =>{
+        console.log("logoff")
         navigate("/");
     }
 
@@ -25,7 +27,7 @@ export const Header = ({btnName, btn, btnHeader, classHeader, setUser}, ref) => 
                 <img className={style.img} src={logo} alt="" />
                 <ButtonDefault 
                 className= {btn? `${btnHeader} ${btn}` : `${btnHeader}`} 
-                onClick={btnName === "Saír" ? logoff : logoffRoute}> {btnName} </ButtonDefault>
+                onClick={loGoOut? logoff : logoffRoute}> {btnName} </ButtonDefault>
             </div>
         </header>
     )

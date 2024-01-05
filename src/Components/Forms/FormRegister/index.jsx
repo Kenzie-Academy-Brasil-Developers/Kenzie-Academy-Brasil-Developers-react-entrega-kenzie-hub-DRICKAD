@@ -4,8 +4,9 @@ import { useState } from "react";
 import { ButtonDefault, Input, InputPassword} from "../../components.js";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api} from "../../components.js" ;
-import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import style from "./style.module.scss";
 
 
 export const FormRegister = ()=>{
@@ -21,9 +22,12 @@ export const FormRegister = ()=>{
     const userRegister = async (formData) =>{
         try {
             const {data} = await api.post("/users", formData);
+            toast.success(`Usuário(a) ${data.name} cadastrado(a) com sucesso!`);
             navigate("/");
-        } catch (error) {
-            console.log(error);
+
+        } catch (e) {
+            toast.error("Usuário(a) já cadastrado(a).");
+            console.log(e);
         }
     }
 

@@ -8,9 +8,11 @@ export const DashboardPage = ({user, setUser}) =>{
     const logoffRoute = () =>{
         navigate("/");
     }
+
+    const loGoOut= true
     
     return(
-        <DefaultTemplate setUser={setUser} logoffRoute={logoffRoute} btnName={"Sair"} btnHeader={"btnHome"}>
+        <DefaultTemplate setUser={setUser} logoffRoute={logoffRoute} btnName={"Sair"} btnHeader={"btnHome"} loGoOut={loGoOut} >
          <section className={style.sectionOne}>
             <div className={style.div1}>
                 <h1 className="title-1">Olá, {user.name}</h1>

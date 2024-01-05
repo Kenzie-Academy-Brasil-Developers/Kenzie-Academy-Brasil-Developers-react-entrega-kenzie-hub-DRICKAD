@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { FormLoginSchema } from "./formLoginSchema";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import style from "./style.module.scss";
 
 
@@ -27,9 +28,13 @@ export const FormLogin = ({setUser}) =>{
         try {
             const {data} = await api.post("/sessions", formData);
             setUser(data.user);
-            localStorage.setItem("@UserToken", JSON.stringify(data.token))
+            localStorage.setItem("@TOKEN", JSON.stringify(data.token))
+
+            toast.success("Usuário logado com sucesso")
+            
             navigate("/dashboard");
         } catch (error) {
+            toast.error("Usuário ou senha invalida")
             console.log(error);
         }
     }
