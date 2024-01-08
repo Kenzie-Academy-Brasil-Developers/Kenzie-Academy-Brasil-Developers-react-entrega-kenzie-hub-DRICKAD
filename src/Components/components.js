@@ -1,9 +1,8 @@
-import { Input} from "./Inputs/InputDafalt";
-import { ButtonDefault } from "./ButtonDefault";
-import { DefaultTemplate } from "./DefaultTemplate";
-import { FormRegister } from "./Forms/FormRegister";
-import { FormLogin } from "./Forms/FormLogin";
-import { InputPassword } from "./Inputs/InputPassword";
-import {api} from "../Services/Api"
+import { InputDefault} from "./forms/inputs/inputDefault";
+import { InputPassword } from "./forms/inputs/inputPassword";
+import {ButtonDefault} from "./buttonDefault";
+import { DefaultTemplate } from "./defaultTemplate";
+import { FormRegister} from "../components/forms/formRegister";
+import { FormLogin } from "../components/forms/formLogin";
 
-export {Input, ButtonDefault, DefaultTemplate, FormRegister, FormLogin, InputPassword, api};
+export{InputDefault, InputPassword, ButtonDefault, DefaultTemplate, FormRegister, FormLogin};

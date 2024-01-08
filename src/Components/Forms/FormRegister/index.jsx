@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { FormRegisterSchema } from "./formRegisterSchema.js";
 import { useState } from "react";
-import { ButtonDefault, Input, InputPassword} from "../../components.js";
+import { ButtonDefault, InputDefault, InputPassword} from "../../components.js";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api} from "../../components.js" ;
+import { api} from "../../../services/Api.js" ;
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import style from "./style.module.scss";
@@ -40,8 +40,8 @@ export const FormRegister = ()=>{
 
             <h2 className="title-1">Crie sua conta</h2>
             <p className="headineGray">Rapido e grátis, vamos nessa</p>
-            <Input label={"Nome"} type="text" placeholder="Digite seu nome aqui"  {...register("name")} error={errors.name}/>
-            <Input label={"Email"} type="email" placeholder="Digite seu email aqui" {...register("email")} error={errors.email}/>
+            <InputDefault label={"Nome"} type="text" placeholder="Digite seu nome aqui"  {...register("name")} error={errors.name}/>
+            <InputDefault label={"Email"} type="email" placeholder="Digite seu email aqui" {...register("email")} error={errors.email}/>
             <div className= {style.divPassword1}>
                 <InputPassword 
                     label= "Senha" 
@@ -63,13 +63,13 @@ export const FormRegister = ()=>{
                     showEyePassword={showEyePassword} />
             </div>
             
-            <Input 
+            <InputDefault 
                 label={"Bio"} 
                 type="text" 
                 placeholder="Fale sobre você" 
                 {...register("bio")} 
                 error={errors.bio}/>
-            <Input 
+            <InputDefault 
                 label={"Contato"} 
                 type="text" 
                 placeholder="Opção de contato" 

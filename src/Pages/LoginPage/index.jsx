@@ -1,6 +1,6 @@
 import style from "./style.module.scss";
 import logo from "../../assets/logoKenzieHub.svg";
-import { FormLogin } from "../../Components/components.js";
+import { FormLogin } from "../../components/components.js";
 
 export const LoginPage = ({setUser}) =>{
 

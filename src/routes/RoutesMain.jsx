@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export const RoutesMain = () =>{
     const [user, setUser] = useState(null);
-   
 
     return(
         <Routes>

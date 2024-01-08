@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { DefaultTemplate } from "../../Components/DefaultTemplate";
+import { DefaultTemplate } from "../../components/components.js";
 import style from "./style.module.scss";
 
 export const DashboardPage = ({user, setUser}) =>{

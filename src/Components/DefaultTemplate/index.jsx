@@ -1,4 +1,4 @@
-import { Header } from "../Header/index.jsx";
+import { Header } from "../header/index.jsx";
 
 export const DefaultTemplate = ({children, ... rest}, ref) => {
     return(

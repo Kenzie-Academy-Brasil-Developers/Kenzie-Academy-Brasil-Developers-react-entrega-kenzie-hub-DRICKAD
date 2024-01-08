@@ -1,7 +1,7 @@
 
 import logo from "../../assets/logoKenzieHub.svg";
 import style from "./style.module.scss";
-import { ButtonDefault } from "../ButtonDefault";
+import { ButtonDefault } from "../components.js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

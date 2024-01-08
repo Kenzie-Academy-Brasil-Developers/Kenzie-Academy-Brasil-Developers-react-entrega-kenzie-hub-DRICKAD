@@ -1,4 +1,4 @@
-import { DefaultTemplate, FormRegister} from "../../Components/components.js";
+import { DefaultTemplate, FormRegister} from "../../components/components.js";
 
 
 export const RegisterPage = () =>{

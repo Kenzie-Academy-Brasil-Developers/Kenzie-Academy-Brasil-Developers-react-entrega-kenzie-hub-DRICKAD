@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import style from "./style.module.scss";
 
-export const Input = forwardRef(({error, label, ...rest}, ref)=>{
+export const InputDefault = forwardRef(({error, label, ...rest}, ref)=>{
 
     return(
         <div className={style.container}>
