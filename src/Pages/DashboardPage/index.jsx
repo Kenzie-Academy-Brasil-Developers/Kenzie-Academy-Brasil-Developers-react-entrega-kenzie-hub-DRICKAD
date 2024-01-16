@@ -1,22 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import { DefaultTemplate } from "../../components/components.js";
 import style from "./style.module.scss";
+import { DefaultTemplate } from "../../components/components.js";
+import { useContext } from "react";
+import { TodoContext } from "../../providers/TodoContext.jsx";
 
-export const DashboardPage = ({user, setUser}) =>{
-    const navigate = useNavigate();
+export const DashboardPage = () =>{
 
-    const logoffRoute = () =>{
-        navigate("/");
-    }
+    const {user} = useContext(TodoContext);
 
     const loGoOut= true
-    
+
     return(
-        <DefaultTemplate setUser={setUser} logoffRoute={logoffRoute} btnName={"Sair"} btnHeader={"btnHome"} loGoOut={loGoOut} >
+        <DefaultTemplate btnName={"Sair"} btnHeader={"btnHome"} loGoOut={loGoOut} >
          <section className={style.sectionOne}>
             <div className={style.div1}>
-                <h1 className="title-1">Olá, {user.name}</h1>
-                <p className= "paragraph2">{user.course_module}</p>
+                <h1 className="title-1">Olá, ....</h1>
+                <p className= "paragraph2">...</p>
             </div>
          </section>
          <section className={style.sectionTwo}>

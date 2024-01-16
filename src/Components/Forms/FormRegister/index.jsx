@@ -1,42 +1,21 @@
 import { useForm } from "react-hook-form";
 import { FormRegisterSchema } from "./formRegisterSchema.js";
-import { useState } from "react";
-import { ButtonDefault, InputDefault, InputPassword} from "../../components.js";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api} from "../../../services/Api.js" ;
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ButtonDefault, InputDefault, InputPassword} from "../../components.js";
 import style from "./style.module.scss";
+import { TodoContext } from "../../../providers/TodoContext.jsx";
+import { useContext } from "react";
 
 
 export const FormRegister = ()=>{
-
-    const [showEyePassword, setShowEyePassword] = useState(false);
+    const {showEyePassword, setShowEyePassword, onSubmitRegister,} = useContext(TodoContext);
 
     const {register, handleSubmit, formState:{errors}} = useForm({
         resolver: zodResolver(FormRegisterSchema),
     });
 
-    const navigate = useNavigate();
-
-    const userRegister = async (formData) =>{
-        try {
-            const {data} = await api.post("/users", formData);
-            toast.success(`Usuário(a) ${data.name} cadastrado(a) com sucesso!`);
-            navigate("/");
-
-        } catch (e) {
-            toast.error("Usuário(a) já cadastrado(a).");
-            console.log(e);
-        }
-    }
-
-    const onSubmit = (formData) => {
-        userRegister(formData);
-    }
-
     return(
-        <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={style.form} onSubmit={handleSubmit(onSubmitRegister)}>
 
             <h2 className="title-1">Crie sua conta</h2>
             <p className="headineGray">Rapido e grátis, vamos nessa</p>
