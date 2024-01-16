@@ -2,17 +2,21 @@ import { useForm } from "react-hook-form";
 import { FormRegisterSchema } from "./formRegisterSchema.js";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ButtonDefault, InputDefault, InputPassword} from "../../components.js";
-import style from "./style.module.scss";
-import { TodoContext } from "../../../providers/TodoContext.jsx";
 import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext.jsx";
+import style from "./style.module.scss";
 
 
 export const FormRegister = ()=>{
-    const {showEyePassword, setShowEyePassword, onSubmitRegister,} = useContext(TodoContext);
+    const {showEyePassword, setShowEyePassword, userRegister} = useContext(UserContext);
 
-    const {register, handleSubmit, formState:{errors}} = useForm({
+    const {register, handleSubmit,reset ,formState:{errors}} = useForm({
         resolver: zodResolver(FormRegisterSchema),
     });
+
+    const onSubmitRegister = (formData) => {
+        userRegister(formData, reset);
+    }
 
     return(
         <form className={style.form} onSubmit={handleSubmit(onSubmitRegister)}>

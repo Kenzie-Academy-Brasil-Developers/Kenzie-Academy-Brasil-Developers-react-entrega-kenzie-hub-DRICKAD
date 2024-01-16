@@ -4,15 +4,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const TodoContext = createContext({});
+export const UserContext = createContext({});
 
 export const TodoProvider = ({children}) =>{
 
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
+
+    const [loading, setLoading] = useState()
     
     const [showEyePassword, setShowEyePassword] = useState(false);
+
+    const pathname = window.location.pathname;
 
     useEffect(() =>{
         const loadUser = async () =>{
@@ -21,19 +25,20 @@ export const TodoProvider = ({children}) =>{
     
           if(token){
             try {
+                setLoading(true);
+
                 const {data} = await api.get(`/profile`, {
                     headers:{
                         Authorization: `Bearer ${token}`,
                     }
                 });
-                console.log(data);
                 setUser(data);
-                console.log(user)
-
-                navigate("/dashboard");
+                navigate(pathname);
                 
             } catch (error) {
                 console.log(error)  
+            } finally{
+                setLoading(false)
             }
         }       
     };
@@ -42,11 +47,12 @@ export const TodoProvider = ({children}) =>{
 
     }, []);
 
-    const userRegister = async (formData) =>{
+    const userRegister = async (formData, reset) =>{
         try {
             const {data} = await api.post("/users", formData);
-            toast.success(`Usuário(a) ${data.name} cadastrado(a) com sucesso!`);
+            reset();
             navigate("/");
+            toast.success(`Usuário(a) ${data.name} cadastrado(a) com sucesso!`);
 
         } catch (e) {
             toast.error("Usuário(a) já cadastrado(a).");
@@ -54,13 +60,15 @@ export const TodoProvider = ({children}) =>{
         }
     }
 
-    const userLogin = async (formData) =>{
+    const userLogin = async (formData, reset) =>{
         try {
             const {data} = await api.post("/sessions", formData);
             localStorage.setItem("@TOKEN", data.token);
             setUser(data.user);
-            toast.success("Usuário logado com sucesso");
             navigate("/dashboard");
+            toast.success("Usuário logado com sucesso");
+
+            reset();
         } catch (error) {
             toast.error("Usuário ou senha invalida");
             console.log(error);
@@ -69,20 +77,11 @@ export const TodoProvider = ({children}) =>{
 
     const logoff = () =>{
         localStorage.removeItem("@TOKEN");
-        toast.success("Usuário foi deslogado");
+        toast.warning("Usuário foi deslogado");
         setUser(null);
         navigate("/");
     }
-
-    const onSubmitRegister = (formData) => {
-        userRegister(formData);
-    }
-
-    const onSubmitLogin = (formData) => {
-        userLogin(formData);
-    }
-
-    
+   
     const btnRegisterUser = () =>{
         navigate("/register");
     }
@@ -95,20 +94,21 @@ export const TodoProvider = ({children}) =>{
 
 
     return(
-        <TodoContext.Provider 
+        <UserContext.Provider 
         value={{
             showEyePassword, 
-            setShowEyePassword, 
-            onSubmitRegister, 
-            onSubmitLogin,
+            setShowEyePassword,
+            userRegister, 
+            userLogin,
             btnRegisterUser,
             logoff,
             logoffRoute,
-            user
+            user,
+            loading,
             }}>
 
             {children}
 
-        </TodoContext.Provider>
+        </UserContext.Provider>
     )
 }

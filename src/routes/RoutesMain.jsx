@@ -1,15 +1,21 @@
 import { Route, Routes} from "react-router-dom";
-import { LoginPage } from "../Pages/LoginPage";
-import { RegisterPage } from "../Pages/RegisterPage";
-import { DashboardPage } from "../Pages/DashboardPage";
+import { LoginPage, RegisterPage, DashboardPage, NotFoundPage } from "../pages/index.js";
+import { ProtectedRoutes} from "./protectedRoutes";
+import { PublicRoutes } from "./publicRoutes";
+
 
 export const RoutesMain = () =>{
 
     return(
         <Routes>
-            <Route path="/" element={<LoginPage/>}/>
-            <Route path="/register" element={<RegisterPage/>}/>
-            <Route path="/dashboard" element={<DashboardPage/>}/>
+            <Route element={<PublicRoutes/>}>
+                <Route path="/" element={<LoginPage/>}/>
+                <Route path="/register" element={<RegisterPage/>}/>
+            </Route>
+            <Route element={<ProtectedRoutes/>}>
+                <Route path="/dashboard"  element={<DashboardPage/>}/>
+            </Route>
+            <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
     )
 }

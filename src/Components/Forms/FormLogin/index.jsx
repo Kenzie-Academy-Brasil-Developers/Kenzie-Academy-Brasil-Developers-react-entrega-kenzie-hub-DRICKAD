@@ -1,5 +1,5 @@
 import { ButtonDefault, InputDefault, InputPassword} from "../../components.js";
-import { TodoContext } from "../../../providers/TodoContext.jsx";
+import { UserContext } from "../../../providers/UserContext.jsx";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,11 +10,15 @@ export const FormLogin = () =>{
     const {showEyePassword,
            setShowEyePassword,
            btnRegisterUser,
-           onSubmitLogin} = useContext(TodoContext);
+           userLogin} = useContext(UserContext);
 
-    const {register, handleSubmit, formState:{errors}} = useForm({
+    const {register, handleSubmit,reset, formState:{errors}} = useForm({
         resolver: zodResolver(FormLoginSchema),
     });
+
+    const onSubmitLogin = (formData) => {
+        userLogin(formData, reset);
+    }
 
     return(
         <form className= {style.form} onSubmit={handleSubmit(onSubmitLogin)}>

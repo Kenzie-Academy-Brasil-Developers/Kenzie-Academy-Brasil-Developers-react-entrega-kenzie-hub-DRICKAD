@@ -3,11 +3,11 @@ import logo from "../../assets/logoKenzieHub.svg";
 import style from "./style.module.scss";
 import { ButtonDefault } from "../components.js";
 import { useContext } from "react";
-import { TodoContext } from "../../providers/TodoContext.jsx";
+import { UserContext } from "../../providers/UserContext.jsx";
 
 export const Header = ({btnName, btn, btnHeader, classHeader, loGoOut}) => {
 
-    const {logoff, logoffRoute} = useContext(TodoContext);
+    const {logoff, logoffRoute} = useContext(UserContext);
 
     return(
         <header className={classHeader? `${style.headerRegister}` : `${style.headerHome}`}>
