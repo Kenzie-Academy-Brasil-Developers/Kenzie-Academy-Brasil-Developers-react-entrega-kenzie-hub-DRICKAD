@@ -21,6 +21,13 @@
     @include title($font-size: clamp(0.8125rem, 1rem, 1.0125rem));
 }
 
+.title-3{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.8125rem, 1rem, 1.0125rem);
+    color: var(--Gray-0);
+}
+
 
 .headine{
     @include headine($color:var(--Gray-0));
@@ -47,5 +54,28 @@
 
 .paragraph2{
     @include paragraph($font-size: clamp(0.5625rem, 0.75rem, 0.7614rem));
+}
+
+.technologies{
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--Gray-0);
+}
+
+.x{
+    border: none;
+    background-color: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--Gray-1);
+}
+
+.tecTitle{
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.2rem, 1.5rem);
+    font-weight: 700;
+    color: var(--Gray-0);
 }
 

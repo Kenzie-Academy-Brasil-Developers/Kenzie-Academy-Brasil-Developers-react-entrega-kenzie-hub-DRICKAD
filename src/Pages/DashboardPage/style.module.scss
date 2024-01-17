@@ -11,7 +11,7 @@
 }
 
 
-.div1, .div2{
+.container1, .container2, .div1{
     margin: 0 auto;
     width: 62.5rem;
     display: flex;
@@ -20,41 +20,59 @@
     justify-content: center;
 }
 
-.div1{
+.container1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.div2{
+.container2{
     padding-top: 2rem;
     flex-direction: column;
     align-items: flex-start;
 }
 
+.div1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icone{
+    color: var( --Gray-0);
+    background-color: var(--Gray-3);
+    border-radius: 0.2rem;
+    font-weight: 900;
+    width: 2.03031rem;
+    height: 2rem;
+    padding: 0.3rem;
+}
+
 @media(max-width:1024px){
-    .div1, .div2{
-            width: 60rem;
+    .container1, .container2{
+            width: 55rem;
             flex-direction: column;
             align-items: flex-start;
             padding-inline: 0.5rem;
-            flex-wrap: wrap;
             justify-content:center;
+    }
+
+    .div1{
+        width: 55.25rem;
     }
 }
 
 @media(max-width:600px){
-    .div1, .div2{
+    .container1, .container2{
         width: 25rem;
         flex-direction: column;
         align-items: flex-start;
         padding-inline: 0.5rem;
-        flex-wrap: wrap;
         justify-content:center;
     }
 }
 
 @media(max-width: 26.5625rem){
-    .div1, .div2{
+    .container1, .container2{
          width: 18.25rem;
          justify-content:center;
     }
@@ -62,12 +80,11 @@
 
 
 @media(max-width: 20rem){
-    .div1, .div2{
+    .container1, .container2{
         width: 17.8125rem;
         flex-direction: column;
         align-items: flex-start;
         padding-inline: 0.5rem;
-        flex-wrap: wrap;
         justify-content:center;
     }
 }

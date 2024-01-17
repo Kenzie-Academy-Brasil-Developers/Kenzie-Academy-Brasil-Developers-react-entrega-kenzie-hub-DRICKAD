@@ -29,11 +29,21 @@ body{
     width: 15rem;
     height: 2.3986rem;
     }
+
+    select{
+      width: 16.2rem;
+      height: 2.9rem;
+    }
 }
 
 @media(max-width: 320px){
-    input, select, textarea{
+    input, textarea{
     width: 14.8125rem;
     height: 2.3986rem;
+    }
+
+    select{
+      width: 16.2rem;
+      height: 2.9rem;
     }
 }

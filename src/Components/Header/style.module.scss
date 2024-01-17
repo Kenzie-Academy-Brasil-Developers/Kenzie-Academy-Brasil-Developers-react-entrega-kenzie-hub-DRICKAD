@@ -80,16 +80,26 @@
         width: 35rem;
         margin-inline: 0;
     }
+
+    .containerHome{
+        width: 25.75rem;
+        gap: 1rem;
+    }
     
 }
 
 @media(max-width: 425px){
     .headerRegister{
-         width: 285px;
+         width: 17.8125rem;
     }
 
     .headerHome{
         width: 24.4rem;
+    }
+
+    .containerHome{
+        width: 18.76rem;
+        gap: 1rem;
     }
 }
 
