@@ -5,7 +5,7 @@ import { ButtonDefault } from "../components.js";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext.jsx";
 
-export const Header = ({btnName, btn, btnHeader, classHeader, loGoOut}) => {
+export const Header = ({btnName, btn, btnHeader, classHeader, loGoOut, arialabel, title}) => {
 
     const {logoff, logoffRoute} = useContext(UserContext);
 
@@ -14,6 +14,7 @@ export const Header = ({btnName, btn, btnHeader, classHeader, loGoOut}) => {
             <div className= {classHeader? `${style.containerRegister}` : `${style.containerHome}`}>
                 <img className={style.img} src={logo} alt="" />
                 <ButtonDefault 
+                title={title} aria-label={arialabel}
                 className= {btn? `${btnHeader} ${btn}` : `${btnHeader}`} 
                 onClick={loGoOut ? logoff : logoffRoute}> {btnName} </ButtonDefault>
             </div>

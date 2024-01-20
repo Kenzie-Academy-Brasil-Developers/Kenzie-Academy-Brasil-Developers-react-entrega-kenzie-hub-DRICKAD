@@ -6,7 +6,12 @@ export const RegisterPage = () =>{
     const classHeader = true;
 
     return(
-        <DefaultTemplate btnName={"Voltar"}  btnHeader={"btnRegister"} classHeader={classHeader} >
+        <DefaultTemplate 
+        title={"voltar"} 
+        aria-label={"back"} 
+        btnName={"Voltar"} 
+        btnHeader={"btnRegister"} 
+        classHeader={classHeader} >
             
            <FormRegister/>
          

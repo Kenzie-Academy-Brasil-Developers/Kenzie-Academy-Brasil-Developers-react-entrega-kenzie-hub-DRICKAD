@@ -45,6 +45,7 @@
     width: 2.03031rem;
     height: 2rem;
     padding: 0.3rem;
+    cursor: pointer;
 }
 
 @media(max-width:1024px){
@@ -69,14 +70,20 @@
         padding-inline: 0.5rem;
         justify-content:center;
     }
+    .div1{
+        width: 25rem;
+    }
 }
 
-@media(max-width: 26.5625rem){
+@media(max-width: 425px){
     .container1, .container2{
          width: 18.25rem;
          justify-content:center;
     }
- }
+    .div1{
+        width: 18.25rem;
+    }
+}
 
 
 @media(max-width: 20rem){
@@ -86,5 +93,8 @@
         align-items: flex-start;
         padding-inline: 0.5rem;
         justify-content:center;
+    }
+    .div1{
+        width: 18rem;
     }
 }

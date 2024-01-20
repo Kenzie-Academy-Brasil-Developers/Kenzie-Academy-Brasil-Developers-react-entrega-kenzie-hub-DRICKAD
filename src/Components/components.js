@@ -5,8 +5,9 @@ import { DefaultTemplate } from "./defaultTemplate";
 import { FormRegister} from "../components/forms/formRegister";
 import { FormLogin } from "../components/forms/formLogin";
 import { TechList } from "./techList";
-import { CreateTechModal } from "./Modals/createTechModal";
-import { EditTechModal } from "./Modals/editTechModal";
+import { CreateModal } from "./techModals/createModal";
+import { EditModal } from "./techModals/editModal";
+
 
 export{
     InputDefault, 
@@ -16,6 +17,6 @@ export{
     FormRegister, 
     FormLogin, 
     TechList,
-    CreateTechModal,
-    EditTechModal,
+    CreateModal,
+    EditModal
 };

@@ -12,41 +12,44 @@ export const TodoProvider = ({children}) =>{
 
     const [user, setUser] = useState(null);
 
-    const [loading, setLoading] = useState()
-    
+    const [loading, setLoading] = useState(false);
+
+    const [listTechs, setListTechs] = useState([]);
+
     const [showEyePassword, setShowEyePassword] = useState(false);
 
     const pathname = window.location.pathname;
 
+    const tokenLocal = localStorage.getItem("@TOKEN");
+    const [token, setToken] = useState(tokenLocal ? tokenLocal : "");
+
+    const authHeader = { headers: { Authorization: `Bearer ${token}` } };
+
     useEffect(() =>{
-        const loadUser = async () =>{
-
-          const token = localStorage.getItem("@TOKEN");
-    
-          if(token){
-            try {
-                setLoading(true);
-
-                const {data} = await api.get(`/profile`, {
-                    headers:{
-                        Authorization: `Bearer ${token}`,
-                    }
-                });
-                setUser(data);
-                navigate(pathname);
-                
-            } catch (error) {
-                console.log(error)  
-            } finally{
-                setLoading(false)
-            }
-        }       
-    };
-    
-    loadUser();
-
+        const loadUser = async () =>{  
+            if(token){
+                try {
+                    setLoading(true);
+                    
+                    const {data} = await api.get("/profile", authHeader);
+                    
+                    setUser(data);
+                    setListTechs(data.techs)
+                    navigate(pathname);
+                    
+                } catch (error) {
+                    console.log(error)  
+                } finally{
+                    setLoading(false)
+                }
+            }       
+        };
+        
+        loadUser();
+        
     }, []);
-
+    
+  
     const userRegister = async (formData, reset) =>{
         try {
             const {data} = await api.post("/users", formData);
@@ -65,6 +68,7 @@ export const TodoProvider = ({children}) =>{
             const {data} = await api.post("/sessions", formData);
             localStorage.setItem("@TOKEN", data.token);
             setUser(data.user);
+            setUser(data.user.techs);
             navigate("/dashboard");
             toast.success("Usuário logado com sucesso");
 
@@ -78,6 +82,7 @@ export const TodoProvider = ({children}) =>{
     const logoff = () =>{
         localStorage.removeItem("@TOKEN");
         toast.warning("Usuário foi deslogado");
+        setListTechs(null);
         setUser(null);
         navigate("/");
     }
@@ -89,9 +94,6 @@ export const TodoProvider = ({children}) =>{
     const logoffRoute = () =>{
         navigate("/");
     }
-
-    
-
 
     return(
         <UserContext.Provider 
@@ -105,6 +107,9 @@ export const TodoProvider = ({children}) =>{
             logoffRoute,
             user,
             loading,
+            listTechs,
+            setListTechs,
+            authHeader
             }}>
 
             {children}
