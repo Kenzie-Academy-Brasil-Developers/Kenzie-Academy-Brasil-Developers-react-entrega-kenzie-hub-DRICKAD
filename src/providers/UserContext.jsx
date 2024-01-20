@@ -21,6 +21,7 @@ export const TodoProvider = ({children}) =>{
     const pathname = window.location.pathname;
 
     const tokenLocal = localStorage.getItem("@TOKEN");
+
     const [token, setToken] = useState(tokenLocal ? tokenLocal : "");
 
     const authHeader = { headers: { Authorization: `Bearer ${token}` } };
@@ -56,7 +57,7 @@ export const TodoProvider = ({children}) =>{
             reset();
             navigate("/");
             toast.success(`Usuário(a) ${data.name} cadastrado(a) com sucesso!`);
-
+            reset()
         } catch (e) {
             toast.error("Usuário(a) já cadastrado(a).");
             console.log(e);
@@ -66,12 +67,12 @@ export const TodoProvider = ({children}) =>{
     const userLogin = async (formData, reset) =>{
         try {
             const {data} = await api.post("/sessions", formData);
-            localStorage.setItem("@TOKEN", data.token);
             setUser(data.user);
-            setUser(data.user.techs);
-            navigate("/dashboard");
+            setToken(data.token);
+            setListTechs(data.user.techs)
+            localStorage.setItem("@TOKEN", data.token);
             toast.success("Usuário logado com sucesso");
-
+            navigate("/dashboard");
             reset();
         } catch (error) {
             toast.error("Usuário ou senha invalida");
@@ -84,6 +85,7 @@ export const TodoProvider = ({children}) =>{
         toast.warning("Usuário foi deslogado");
         setListTechs(null);
         setUser(null);
+        setToken(null);
         navigate("/");
     }
    

@@ -8,7 +8,7 @@ import { TechContext} from "../../providers/TechContext.jsx";
 export const DashboardPage = () =>{
 
     const {user} = useContext(UserContext);
-    const {openModal, setOpenModal, loGoOut, openEditModal, createTech, editTech, setOpenEditModal} = useContext(TechContext);
+    const {openModal, setOpenModal, loGoOut, openEditModal} = useContext(TechContext);
 
     return(
         <DefaultTemplate
@@ -17,8 +17,8 @@ export const DashboardPage = () =>{
 
          <section className={style.sectionOne}>
             <div className={style.container1}>
-                <h1 className="title-1">Olá, {user?.name}</h1>
-                <p className= "paragraph2">{user?.course_module}</p>
+                <h1 className="title-1">Olá, {user.name}</h1>
+                <p className= "paragraph2"> {user.course_module} </p>
             </div>
          </section>
          
